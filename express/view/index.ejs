@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rendered HTML</h1>
+    <p>Hello, this HTML file is rendered by express.js</p>
+    <button onclick="post()">Save data to data.db</button>
+    <button onclick="get()">Get data from data.db</button>
+</body>
+<script>
+const data = {'Lord' : 'Beckett', 'Fernando' : 'Cruz', 'Leopold' : 'XII', 'Saved': new Date()}
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type' : 'application/json' //definujeme ze toto je json
+    },
+    body: JSON.stringify(data)
+}
+    function post () {
+        fetch('/', options)
+        console.log('Data saved', new Date())
+    }
+
+//EJS nevie najst files -> nie su v promises
+
+    function get () {
+        //fetch('http://localhost:3000/')
+        fetch('/data.db')
+        .then((res)=> res.text()) //res.json()
+        .then((data)=> console.log(data))
+    }
+</script>
+</html>
