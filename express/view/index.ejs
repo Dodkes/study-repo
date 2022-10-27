@@ -30,7 +30,7 @@ const options = {
     function get () {
         fetch('/api')
         .then((res)=> res.text()) //res.json()
-        .then((data)=> console.log(data))
+        .then((data)=> console.log(JSON.parse(data)))
     }
 </script>
 </html>

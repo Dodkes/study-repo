@@ -22,22 +22,9 @@ app.get('/', (req, res) => {
 
 //Post routuje HTTP POST request
 app.post('/api', (req, res) => {
-    //fs.appendFileSync('data.db', JSON.stringify(req.body) + "\n")
-
     fs.writeFile('data.db', JSON.stringify(req.body), (err) => {
         if (err) throw err
     })
-    // fs.writeFile('test.txt', JSON.stringify(req.body), (err) => {
-    //     if (err) throw err
-    //     console.log('saved')
-    // })
-
-
-    // fs.readFile('data.db', 'utf8', (err, data) => {
-    //     if (err) return console.log(err)
-    //     dataFromServer = data
-    //     console.log(dataFromServer)
-    // })
 })
 
 app.get('/api', (req, res) => { //na localhost:3000/api mam ulozene toto API
@@ -46,10 +33,3 @@ app.get('/api', (req, res) => { //na localhost:3000/api mam ulozene toto API
         res.send(data)
     })
 })
-
-
-// const {resolve} = require('path');
- 
-// const absolutePath = resolve('./data.db');
-
-// console.log(absolutePath);
