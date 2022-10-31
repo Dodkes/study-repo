@@ -1,11 +1,14 @@
 const express = require('express')
+const fs = require('fs')
+
 const app = express() //premennej app sme dali properties a methods, ktore od teraz mozme pouzivat
 app.listen(3000)
 console.log('SERVER: Server started')
 
 
-const fs = require('fs')
 app.use(express.json())
+app.use(express.static('public')) //POUZITIE STATIC FILES, kt. sa nachadzaju vo foldri 'public'
+
 
 //Pre renderovanie HTML je potrebne toto:
 const path = require('path')
@@ -16,8 +19,8 @@ app.set('views', viewPath)
 //Toto sa vyvola ak niekto nacita stranku teda localhost
 app.get('/', (req, res) => {
     console.log(req.ip + ' connected to the server')
-    //res.json({'JSON': 'JSON'})
-    res.render('index') //Renderujeme index.ejs
+    //res.render('index') //Renderujeme index.ejs
+    res.send()
 })
 
 //Post routuje HTTP POST request

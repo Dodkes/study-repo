@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rendered HTML</h1>
+    <p>Hello, this HTML file is rendered by express.js</p>
+    <button onclick="post()">Save data to data.db</button>
+    <button onclick="get()">Get data from data.db</button>
+</body>
+<script>
+let data = {'Lord' : 'Beckett', 'Fernando' : 'Cruz', 'Leopold' : 'XII', 'Saved(o)': new Date()}
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type' : 'application/json' //definujeme ze toto je json
+    },
+    body: JSON.stringify(data)
+}
+
+    function post () {
+        fetch('/api', options)
+        console.log('Data saved', new Date())
+    }
+
+    function get () {
+        fetch('/api')
+        .then((res)=> res.text()) //res.json()
+        .then((data)=> console.log(JSON.parse(data)))
+    }
+</script>
+</html>
