@@ -1,0 +1,32 @@
+body {
+  background-color: #141418;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-heading {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+  text-align: center;
+  font-size: 20px;
+}
+
+.role-tab {
+  color: white;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: 500ms;
+  padding: 20px;
+  width: 33%;
+}
+
+.role-tab:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #141418;
+  cursor: pointer;
+}
