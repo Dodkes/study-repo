@@ -22,11 +22,16 @@ body {
   border: none;
   transition: 500ms;
   padding: 20px;
-  width: 33%;
+  width: 25%;
 }
 
 .role-tab:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5) !important;
   color: #141418;
   cursor: pointer;
+}
+
+#guide-container {
+  background-color: white;
+  border: 1px solid black;
 }
