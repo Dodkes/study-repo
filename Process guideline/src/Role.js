@@ -11,6 +11,6 @@ export default function Role (props) {
         props.getRoleData(e.target.id)
    }
 
-    return <button id={props.id} onClick={displayProcesses} className="role-tab">{props.roleName}</button>
+    return <button id={props.id} onClick={displayProcesses} className="role-tab">{props.id.toUpperCase()}</button>
 }
 

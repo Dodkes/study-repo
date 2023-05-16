@@ -20,7 +20,7 @@ body {
   background-color: transparent;
   outline: none;
   border: none;
-  transition: 500ms;
+  transition: 200ms;
   padding: 20px;
   width: 25%;
 }
@@ -34,4 +34,20 @@ body {
 #guide-container {
   background-color: white;
   border: 1px solid black;
+}
+
+li {
+  list-style-type: none;
+  color: black;
+  margin: 1%;
+  background-color: white;
+  transition: 200ms;
+  border-radius: 3px;
+  text-align: center;
+}
+
+li:hover {
+  cursor: pointer;
+  background-color: rgb(30, 153, 81);
+  color: white;
 }

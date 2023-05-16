@@ -1,20 +1,20 @@
-import { useState } from 'react';
-import './App.css';
-import Role from './Role';
+import { useState } from 'react'
+import './App.css'
+import Role from './Role'
+import { networkProcess, teamsProcess, tsysnowProcess, otherProcess } from './data'
 
 function App() {
-
-const [data, setData] = useState('')
+const [data, setData] = useState([])
 
   const getRoleData = (data) => {
     switch (data) {
-      case 'network' : setData('Network')
+      case 'network' : setData(networkProcess)
         break
-      case 'teams' : setData('Teams')
+      case 'teams' : setData(teamsProcess)
         break
-        case 'tsysnow' : setData('tsysnow')
+        case 'tsysnow' : setData(tsysnowProcess)
         break
-        case 'other' : setData('other')
+        case 'other' : setData(otherProcess)
           break
         default:
     }
@@ -23,17 +23,19 @@ const [data, setData] = useState('')
   return (
     <>
     <h1 className='main-heading'>1TOC Process guideline</h1>
-    <Role roleName={'Network'} id={'network'} getRoleData={getRoleData}/>
-    <Role roleName={'TSY SNOW'} id={'tsysnow'} getRoleData={getRoleData}/>
-    <Role roleName={'Teams'} id={'teams'} getRoleData={getRoleData}/>
-    <Role roleName={'Other'} id={'other'} getRoleData={getRoleData}/>
+    <Role  id={'network'} getRoleData={getRoleData}/>
+    <Role  id={'tsysnow'} getRoleData={getRoleData}/>
+    <Role  id={'teams'} getRoleData={getRoleData}/>
+    <Role  id={'other'} getRoleData={getRoleData}/>
     <Guide getRoleData={getRoleData} data={data}/>
     </>
   )
 }
 
 function Guide (props) {
-    return <div id='guide-container'>{props.data}</div>
+    return props.data.map((process)=>{
+      return <li key={Math.random()}>{process}</li>
+    })
 }
 
 export default App;
