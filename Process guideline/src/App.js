@@ -27,15 +27,30 @@ const [data, setData] = useState([])
     <Role  id={'tsysnow'} getRoleData={getRoleData}/>
     <Role  id={'teams'} getRoleData={getRoleData}/>
     <Role  id={'other'} getRoleData={getRoleData}/>
-    <Guide getRoleData={getRoleData} data={data}/>
+    <ProcessGuide getRoleData={getRoleData} data={data}/>
     </>
   )
 }
 
-function Guide (props) {
-    return props.data.map((process)=>{
-      return <li key={Math.random()}>{process}</li>
+function ProcessGuide (props) {
+    return props.data.map((process) => {
+      return (<div key={Math.random()}>
+        <li id='process-name'>{process.processName}</li>
+        <div id='process-content'>
+          <Steplist data={process.steps} />
+        </div>
+        
+      </div>)
     })
+}
+
+function Steplist (props) {
+
+  return props.data.map((steps) => {
+    return (
+    <li key={Math.random()}>{steps}</li>
+    )
+  })
 }
 
 export default App;

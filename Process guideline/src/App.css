@@ -38,16 +38,26 @@ body {
 
 li {
   list-style-type: none;
+}
+
+#process-name {
   color: black;
-  margin: 1%;
+  margin: 1% 1% 0 1%;
   background-color: white;
   transition: 200ms;
-  border-radius: 3px;
+  border-radius: 3px 3px 0 0;
   text-align: center;
 }
 
-li:hover {
+#process-name:hover {
   cursor: pointer;
   background-color: rgb(30, 153, 81);
   color: white;
+}
+
+#process-content {
+  color: white;
+  border: 1px solid white;
+  margin: 0 1% 0 1%;
+  border-radius: 0 0 3px 3px;
 }
