@@ -61,3 +61,14 @@ li {
   margin: 0 1% 0 1%;
   border-radius: 0 0 3px 3px;
 }
+
+#highlight {
+  color: red;
+  text-shadow: 2px 2px 2px black;
+  margin-top: 10px;
+}
+
+#description {
+  color: white;
+  text-shadow: 2px 2px 2px black;
+}
