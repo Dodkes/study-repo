@@ -4,7 +4,6 @@ export default function ProcessGuide (props) {
       return (<div key={Math.random()}>
         <li id='process-name'>{process.processName}</li>
         <div id='process-content'>
-          {/* <Steplist data={process.steps} /> */}
           <Steplist steps={process} />
         </div>
         
