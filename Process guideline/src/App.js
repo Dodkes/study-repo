@@ -15,7 +15,7 @@ const [data, setData] = useState([])
         break
         case 'tsysnow' : setData(tsysnowProcess)
         break
-        case 'other' : setData(otherProcess)
+        case 'queue' : setData(otherProcess)
           break
         default:
     }
@@ -27,7 +27,7 @@ const [data, setData] = useState([])
       <Role id={'network'} getRoleData={getRoleData}/>
       <Role id={'tsysnow'} getRoleData={getRoleData}/>
       <Role id={'teams'} getRoleData={getRoleData}/>
-      <Role id={'other'} getRoleData={getRoleData}/>
+      <Role id={'queue'} getRoleData={getRoleData}/>
       <ProcessGuide getRoleData={getRoleData} data={data}/>
     </>
   )

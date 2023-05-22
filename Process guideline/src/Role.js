@@ -1,7 +1,7 @@
 export default function Role (props) {
    function displayProcesses (e) {
 
-        const roleIDs = ['network', 'tsysnow', 'teams', 'other']
+        const roleIDs = ['network', 'tsysnow', 'teams', 'queue']
         roleIDs.forEach(element => {
                 document.getElementById(element).style.backgroundColor = 'transparent'
                 document.getElementById(element).style.color = 'white'

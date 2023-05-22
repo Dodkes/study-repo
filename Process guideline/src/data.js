@@ -26,22 +26,17 @@ const networkProcess = [{
     },
     {
         step: '6) POWER OUTAGE',
-        description: ' - if there is power outage confirmed, send ticket to BICORE with such information'
+        description: ' - If there is power outage confirmed, send ticket to BICORE with such information'
     },
     {
         step: '7) NO POWER OUTAGE',
-        description: ' - in case of no response/no power outage confirmation, open ticket with provider & follow escalation process. Provide this information to teams spoc. For email to provider, also add BICORE SL zzitinfnwsbicoreshiftleads@boehringer-ingelheim.com + LIM of the affected site https://boehringer.sharepoint.com/sites/z365itinf/Lists/Demand%20%20Country/AllItems.aspx'
+        description: ' - In case of no response/no power outage confirmation, open ticket with provider & follow escalation process. Provide this information to teams spoc. For email to provider, also add BICORE SL zzitinfnwsbicoreshiftleads@boehringer-ingelheim.com + LIM of the affected site https://boehringer.sharepoint.com/sites/z365itinf/Lists/Demand%20%20Country/AllItems.aspx'
     }
 ]
-
-},
-{
-    processName: 'SDWAN API',
-    steps: ['1step']
 }]
 
 const teamsProcess = [{
-    processName: 'KONICA report handling',
+    processName: 'KONICA report',
     steps: [{
         step: '1) INC',
         description: ' - Create ticket'
@@ -52,7 +47,7 @@ const teamsProcess = [{
     },
     {
         step: '3) SEND MAIL',
-        description: ' - to zzitgaekonica-support@boehringer-ingelheim.com with issue description. Konica support will create a case for the issue [MOST IMPORTANT]'
+        description: ' - To zzitgaekonica-support@boehringer-ingelheim.com with issue description. Konica support will create a case for the issue [MOST IMPORTANT]'
     },
     {
         step: '4) FORWARD INC ACCORDING THE ISSUE',
@@ -78,21 +73,24 @@ const otherProcess = [{
     processName: 'Server reboot approval (HC & category A)',
     steps: [{
         step: '1) APPROVAL MAIL',
-        description: ' - send mail to SL + delegates + 1TOC to cc. Inform about the issue and request timeframe for reboot'
+        description: ' - Send mail to SL + delegates + 1TOC to cc. Inform about the issue and request timeframe for reboot'
     },
     {
         step: '2) FORWARD INC TO AG',
-        description: ' - attach mail to ticket & send ticket to admin group with the same message as texted in mail'
+        description: ' - Attach mail to ticket & send ticket to admin group with the same message as texted in mail'
     },
     {
         step: '3) RESPONSE',
-        description: ' - after approval proceed to reboot/put ticket on hold and send reminder via outlook 1TOC people on that shift'
+        description: ' - After approval proceed to reboot/put ticket on hold and send reminder via outlook 1TOC people on that shift'
     }
 ]
 },
 {
     processName: 'Host outage',
-    steps: []
+    steps: [{
+        step: '0) MM CHECK',
+        description: ' - Check if the host is in MM in OBM repository'
+    }]
 },
 {
     processName: 'LIMES user unlock',
