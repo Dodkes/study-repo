@@ -51,7 +51,7 @@ li {
 
 #process-name:hover {
   cursor: pointer;
-  background-color: rgb(30, 153, 81);
+  background-color: rgb(30, 153, 81) !important;
   color: white;
 }
 

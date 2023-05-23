@@ -2,7 +2,8 @@ const networkProcess = [{
     processName: 'Site Down',
     steps: [{
         step: '0) MM Check',
-        description: ' - Check if there is any ongoing MM on site. Check in tasks, changes, mails'
+        description: ' - Check if there is any ongoing MM on site. Check in tasks, changes, mails',
+        image: 'Image Source'
     },
     {
         step: '1) ROUTERS',
@@ -26,7 +27,8 @@ const networkProcess = [{
     },
     {
         step: '6) POWER OUTAGE',
-        description: ' - If there is power outage confirmed, send ticket to BICORE with such information'
+        description: ' - If there is power outage confirmed, send ticket to BICORE with such information',
+        image: 'Image Source 2'
     },
     {
         step: '7) NO POWER OUTAGE',
@@ -90,7 +92,20 @@ const otherProcess = [{
     steps: [{
         step: '0) MM CHECK',
         description: ' - Check if the host is in MM in OBM repository'
-    }]
+    },
+    {
+        step: '1) CREATE OUTAGE',
+        description: ' - Use OBM time created column for outage start time'
+    },
+    {
+        step: '2) IF NO NETWORK ISSUE',
+        description: ' - Start host >> check if VMs are running >> close outage >> close INC'
+    },
+    {
+        step: '3) IF NETWORK ISSUE RELATED',
+        description: ' - Link to network ticket >> open outage >> send to DC-S'
+    }
+]
 },
 {
     processName: 'LIMES user unlock',

@@ -1,16 +1,36 @@
+// import test from './portfo.png'
+
 export default function ProcessGuide (props) {
 
 function toggleSteplist(e) {
-  e.target.nextElementSibling.style.display = 'block'
+let activeProcess
+if (e.target.style.backgroundColor === 'rgb(30, 153, 81)') {
+    activeProcess = e.target
+}
+
+let processContainerArray = document.querySelectorAll('.process-container')
+processContainerArray.forEach((element) => {
+  element.children[0].style.backgroundColor = 'rgb(255, 255, 255)'
+  element.children[1].style.display = 'none'
+}
+)
+
+
+e.target.style.backgroundColor = 'rgb(30, 153, 81)'
+e.target.nextElementSibling.style.display = 'block'
+
+if (activeProcess) {
+  activeProcess.nextElementSibling.style.display = 'none'
+  activeProcess.style.backgroundColor = 'rgb(255, 255, 255)'
+}
 }
 
     return props.data.map((process) => {
-      return (<div key={Math.random()}>
+      return (<div className='process-container' key={Math.random()}>
         <li onClick={toggleSteplist} id='process-name'>{process.processName}</li>
         <div id='process-content'>
           <Steplist steps={process} />
         </div>
-        
       </div>)
     })
 }
@@ -22,7 +42,18 @@ function Steplist (props) {
           <input type="checkbox" id="step-checkbox"></input>
           {steps.step}
           <span id="description">{steps.description}</span>
+          <HintButtton img={steps.image}/>
+          {/* <button id={steps.image}>Hint</button> */}
+          {/* <img alt='' src={test}></img> */}
         </li>
     )
   })
+}
+
+
+function HintButtton (props) {
+  console.log(props.img)
+  if (props.img) {
+    return <button id={props.img}>Hint</button>
+  }
 }
