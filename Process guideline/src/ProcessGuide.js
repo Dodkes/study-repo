@@ -1,5 +1,3 @@
-// import test from './portfo.png'
-
 export default function ProcessGuide (props) {
 
 function toggleSteplist(e) {
@@ -43,8 +41,6 @@ function Steplist (props) {
           {steps.step}
           <span id="description">{steps.description}</span>
           <HintButtton img={steps.image}/>
-          {/* <button id={steps.image}>Hint</button> */}
-          {/* <img alt='' src={test}></img> */}
         </li>
     )
   })
@@ -52,8 +48,7 @@ function Steplist (props) {
 
 
 function HintButtton (props) {
-  console.log(props.img)
   if (props.img) {
-    return <button id={props.img}>Hint</button>
+    return <button id={props.img} className='hint-button' onClick={()=> console.log(props.img)}>Example</button>
   }
 }

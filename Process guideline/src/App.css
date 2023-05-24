@@ -82,3 +82,19 @@ li {
   border: none;
   outline: none;
 }
+
+.hint-button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: yellow;
+  margin-left: 2%;
+  transition: 200ms;
+  font-style: oblique;
+  font-variant: small-caps;
+
+}
+
+.hint-button:hover {
+  color: salmon;
+}
