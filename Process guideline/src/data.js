@@ -42,7 +42,7 @@ const teamsProcess = [{
     processName: 'KONICA report',
     steps: [{
         step: '1) INC',
-        description: ' - Create ticket'
+        description: ' - Create INC according the reported issue by GSD'
     },
     {
         step: '2) CHECK INFO',
@@ -71,16 +71,21 @@ const teamsProcess = [{
 const tsysnowProcess = [{
     processName: 'FW Change',
     steps: [{
-        step: '1) FW DCS/FCI CHECK',
-        description: ' - Validate DCS/FCI FW rule via mail or teams markus.schutz@boehringer-ingelheim.com & soeren.kuettner@boehringer-ingelheim.com',
+        step: 'A) IF VSYS RULE',
+        description: ' - In case rule is VSYS, validate DCS/FCI FW rule via mail or teams with markus.schutz@boehringer-ingelheim.com & soeren.kuettner@boehringer-ingelheim.com, wait for response and continue according the validated FW type',
         image: 'fw-validate.jpg'
     },
     {
-        step: '2) IF FCI VALIDATED',
-        description: ' - Assign on Marian Marcak & inform him about that. In case Marian is unavailable, assign on Pavol Giertl. You are done here, no more steps required'
+        step: 'B) IF [FCI] Boehringer',
+        description: ' - If there are no aditional requirements in the task. Close the task as follows: In the task, from the "State" drop down menu, set to "Close Skipped" and close the task',
+        image: 'close-fci-task.jpg'
     },
     {
-        step: '3) IF DCS VALIDATED',
+        step: 'C) IF any other FCI',
+        description: ' - Assign on Marian Marcak/Pavol Giertl and let him know about that'
+    },
+    {
+        step: 'D) IF DCS',
         description: ' - Create FW change in compass & wait for the change number'
     },
     {
@@ -90,7 +95,32 @@ const tsysnowProcess = [{
     },
     {
         step: '5) CLOSE TASK',
-        description: ' - Once Miroslav sends the change ID. Close the task with that ID'
+        description: ' - Once Miroslav sends the change ID, in the task, from the "State" drop down menu, set to "Close Complete" and then close it with received change ID'
+    }
+]
+},
+{
+    processName: 'SAP process',
+    steps: [{
+        step: '0) DETERMINE SAP PROCESS',
+        description: ' - If you receive an email from TSY SAP team that some of the SAP system/s is/are down/offline, you must perform next steps',
+        image: 'sap-mail.jpg'
+    },
+    {
+        step: '1) CREATE INC',
+        description: ' - Create ticket in BI SNOW, set SO to BI-PAAS-SAP-XXX, where XXX is affected SAP system. Also attach the email to created ticket',
+    },
+    {
+        step: '2) CREATE OUTAGE',
+        description: ' - Refresh impacted services & then create outage for affected SAP system',
+    },
+    {
+        step: '3) SEND AN EMAIL',
+        description: ' - Reply all to email you received, that you have created an INCXXX for that issue. Let ticket wait in queue until issue is resolved'
+    },
+    {
+        step: '4) CLOSE INC',
+        description: ' - Once you receive an email from TSY SAP team that issue is resolved, attach email to INC and close INC.'
     }
 ]
 },
@@ -128,7 +158,7 @@ const otherProcess = [{
         description: ' - Use OBM "time created" column for outage start time'
     },
     {
-        step: '2) IF NO NETWORK ISSUE',
+        step: '2) IF NO NETWORK ISSUE RELATED',
         description: ' - Start host >> check if VMs are running >> close outage >> close INC'
     },
     {
