@@ -100,7 +100,7 @@ const tsysnowProcess = [{
 ]
 },
 {
-    processName: 'SAP process',
+    processName: 'SAP system down',
     steps: [{
         step: '0) DETERMINE SAP PROCESS',
         description: ' - If you receive an email from TSY SAP team that some of the SAP system/s is/are down/offline, you must perform next steps',
@@ -120,9 +120,21 @@ const tsysnowProcess = [{
     },
     {
         step: '4) CLOSE INC',
-        description: ' - Once you receive an email from TSY SAP team that issue is resolved, attach email to INC and close INC.'
+        description: ' - Once you receive an email from TSY SAP team that issue is resolved, attach email to INC and close INC'
     }
 ]
+},
+{
+    processName: 'Shortdump handling',
+    steps: [{
+        step: '1) FIND CORRECT SO ',
+        description: ' - Click on "i" next to SO. Keep opening related items until you see the "AP_" tag, then open it and find correct SO via upstream relations',
+        image: 'ap-so.jpg'
+    },
+    {
+        step: '2) CHANGE TICKET INFO ',
+        description: ' - Once you have the proper SO, change it in the ticket. Let CI input empty and change short description to "N shortdumps in the last 24h". Set lowest priority possible and send to AG according the SO'
+    }]
 },
 {
     processName: 'SNOW Change',
