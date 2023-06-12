@@ -61,7 +61,32 @@ const teamsProcess = [{
 },
 {
     processName: 'Business Critical Hotline',
-    steps: []
+    steps: [{
+        step: '0) CONFIRM BCH WITH GSD',
+        description: ' - If the issue is reported as "Business Critical Hotline: yes", confirm with GSD, that issue was correctly reported via BCH to prevent mistakenly reported issue. If GSD confirmed, perform next steps'
+    },
+    {
+        step: '1) HANDLE THE INC',
+        description: ' - Open the respective runbook and handle INC as usual (follow runbook steps)'
+    },
+    {
+        step: '2) IF ISSUE FIXED',
+        description: ' - Once you performed runbook steps, check with GSD if issue persists. If not, close the INC'
+    },
+    {
+        step: '3) IF ISSUE NOT FIXED',
+        description: ' - Contact respective admin group. Perform warm handover, no matter which support category it is. If handover not possible/no response, perform xMatters'
+    },
+    {
+        step: '4) TICKET ACCEPTED',
+        description: ' - Once admin group accepted ticket, send an email to GSD >> zzITINFTeamGSDVendor@boehringer-ingelheim.com - template in KB0062752',
+        image: 'gsd-template.jpg'
+    },
+    {
+        step: '5) IF 2ND LVL REQUEST OSS',
+        description: ' - 2nd level can request on site support to 1TOC. OSS is triggered by 1TOC via xMatters. See KB0030938'
+    }
+]
 },
 {
     processName: 'SAP outage',

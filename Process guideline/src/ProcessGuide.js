@@ -49,6 +49,6 @@ function Steplist (props) {
 
 function HintButtton (props) {
   if (props.img) {
-    return <button id={props.img} className='hint-button' onClick={()=> console.log(props.img)}>Example</button>
+    return <button id={props.img} className='hint-button' onClick={()=> console.log(props.img)}>Snip</button>
   }
 }
