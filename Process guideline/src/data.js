@@ -206,7 +206,43 @@ const otherProcess = [{
 },
 {
     processName: 'LIMES user unlock',
-    steps: []
+    steps: [{
+        step: '0) Business hours check',
+        description: ' - Business hours are out of weekend & out of 6AM - 5 PM CET'
+    },
+    {
+        step: '1) TPAM password reset',
+        description: ' - Go to TPAM URL in VDI - https://pam/tpam/main.asp '
+    },
+    {
+        step: '2) Login',
+        description: ' - Use your VDI credentials'
+    },
+    {
+        step: '3) Request password',
+        description: ' - click on "Request" drop down menu on the top, choose "Password" & "Add Request". In "Filter" tab in Account Name input put "x2lwsupport". Go to "Accounts" tab & select the "DE-AS-LABWARE-BP-PW". In Details put INC number. Then click on "Save Changes"'
+    },
+    {
+        step: '4) Get the password',
+        description: ' - Click on "Password" tab and the password is in the square brackets [ Password ], for 10 seconds. Write it down.'
+    },
+    {
+        step: '5) Login as LW support',
+        description: ' - Go to url - https://myworkspace/Citrix/BIStore2Web/. Log out from your x2 account or go via incognito mode & login as x2lwsupport@boehringer-ingelheim.com & TPAM password.'
+    },
+    {
+        step: '6) Login to LIMES Prod',
+        description: ' - Login to LIMES Prod. Click on 2nd icon from the left and log in. Use "x2lwsupport" username & TPAM password, hit OK, then select role "R-USERADMIN"'
+    },
+    {
+        step: '7) Unlocking the account',
+        description: ' - Click on 4th icon from the left "Open the Explorer Table Manager". In the left panel, expand "Users". Find the blocked user name, select "User disabled", from True to False. Save.'
+    },
+    {
+        step: '8) Resolving the INC',
+        description: ' - Snip it to INC & forward back to affected user to check if the account is unlocked.'
+    }
+]
 }
 ]
 
